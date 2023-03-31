@@ -1,9 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://6yjxbdatur48"]
+[gd_scene load_steps=11 format=3 uid="uid://cy5rwckcnbpg0"]
 
-[ext_resource type="Texture2D" uid="uid://dnd8w8kporby0" path="res://assets/images/tilesets/level 02/Assets.png" id="1_mpor7"]
+[ext_resource type="Texture2D" uid="uid://dnd8w8kporby0" path="res://assets/images/tilesets/level 02/Assets.png" id="1_t0lpc"]
+[ext_resource type="Texture2D" uid="uid://dc2qltx8kmm4w" path="res://assets/images/backgrounds/level 02/sky.png" id="2_hb1fq"]
+[ext_resource type="Texture2D" uid="uid://kkhy1njvubqb" path="res://assets/images/backgrounds/level 02/far-buildings.png" id="3_ofve2"]
+[ext_resource type="Texture2D" uid="uid://c31judq4scufs" path="res://assets/images/backgrounds/level 02/buildings.png" id="4_sk1q3"]
+[ext_resource type="Texture2D" uid="uid://cd5rnlrxo60ii" path="res://assets/images/backgrounds/level 02/trees.png" id="5_6g2f4"]
+[ext_resource type="PackedScene" uid="uid://cepuistxrx2qm" path="res://scenes/player.tscn" id="6_yuyxe"]
+[ext_resource type="PackedScene" uid="uid://mu13syuul5mo" path="res://scenes/level_transition.tscn" id="7_yi16q"]
+[ext_resource type="Texture2D" uid="uid://b8e0h0wvj6y0e" path="res://assets/images/extras/level 02/book.png" id="8_duok1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_05bsi"]
-texture = ExtResource("1_mpor7")
+texture = ExtResource("1_t0lpc")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -870,7 +877,56 @@ sources/4 = SubResource("TileSetAtlasSource_05bsi")
 
 [node name="Level 02" type="Node2D"]
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(510, 2.08165e-12)
+
+[node name="Sky" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(222, 178)
+scale = Vector2(1.38859, 1.47917)
+texture = ExtResource("2_hb1fq")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(270, 2.08165e-12)
+
+[node name="Far Buildings" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(108, 176)
+scale = Vector2(1.60227, 1.47917)
+texture = ExtResource("3_ofve2")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.3, 0.3)
+motion_mirroring = Vector2(500, 2.08165e-12)
+
+[node name="Near Buildings" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(221.5, 179)
+scale = Vector2(1.21394, 1.49167)
+texture = ExtResource("4_sk1q3")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 0.4)
+motion_mirroring = Vector2(335, 2.08165e-12)
+
+[node name="Trees" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(138, 178.5)
+scale = Vector2(1.625, 1.47917)
+texture = ExtResource("5_6g2f4")
+
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_732vy")
 format = 2
-layer_0/tile_data = PackedInt32Array(589828, 131076, 0, 589829, 196612, 0, 589830, 196612, 0, 589831, 196612, 0, 589832, 327684, 1, 655368, 327684, 2, 720904, 327684, 3, 720903, 196612, 4, 720902, 196612, 4, 720901, 196612, 4, 720900, 131076, 4, 655364, 65540, 2, 655365, 196612, 3, 655366, 196612, 3, 655367, 131076, 2, 131076, 131076, 0, 196612, 65540, 2, 262148, 131076, 4, 262149, 196612, 4, 262150, 196612, 4, 262151, 196612, 4, 262152, 196612, 4, 262153, 327684, 3, 196617, 327684, 2, 131081, 327684, 1, 131080, 196612, 0, 131079, 196612, 0, 131078, 196612, 0, 131077, 196612, 0, 196613, 131076, 2, 196614, 196612, 3, 196615, 131076, 2, 196616, 262148, 2, 458768, 458756, 7, 458769, 589828, 7, 458770, 589828, 7, 458771, 655364, 7, 393235, 393220, 12, 393234, 327684, 12, 393233, 327684, 12, 393232, 262148, 12, 720917, 589828, 4, 720918, 589828, 4, 720919, 589828, 4, 720920, 655364, 4, 655384, 655364, 3, 655383, 589828, 3, 655382, 589828, 3, 655381, 589828, 3, 393236, 589828, 3, 393237, 655364, 3, 458773, 655364, 4, 458772, 589828, 4, 393238, 655364, 3, 458774, 655364, 4)
+layer_0/tile_data = PackedInt32Array(589828, 131076, 0, 589829, 196612, 0, 589830, 196612, 0, 589831, 196612, 0, 589832, 327684, 1, 655368, 196612, 3, 720904, 196612, 4, 720903, 196612, 4, 720902, 196612, 4, 720901, 196612, 4, 720900, 131076, 4, 655364, 65540, 2, 655365, 196612, 3, 655366, 196612, 3, 655367, 131076, 2, 131076, 131076, 0, 196612, 65540, 2, 262148, 131076, 4, 262149, 196612, 4, 262150, 196612, 4, 262151, 196612, 4, 262152, 196612, 4, 262153, 327684, 3, 196617, 327684, 2, 131081, 327684, 1, 131080, 196612, 0, 131079, 196612, 0, 131078, 196612, 0, 131077, 196612, 0, 196613, 131076, 2, 196614, 196612, 3, 196615, 131076, 2, 196616, 262148, 2, 458768, 458756, 7, 458769, 589828, 7, 458770, 589828, 7, 458771, 655364, 7, 393235, 393220, 12, 393234, 327684, 12, 393233, 327684, 12, 393232, 262148, 12, 720917, 589828, 4, 720918, 589828, 4, 720919, 589828, 4, 720920, 655364, 4, 655384, 655364, 3, 655383, 589828, 3, 655382, 589828, 3, 655381, 589828, 3, 393236, 589828, 3, 393237, 655364, 3, 458773, 655364, 4, 458772, 589828, 4, 393238, 655364, 3, 458774, 655364, 4, 589833, 65540, 2, 589834, 327684, 2, 589835, 327684, 1, 655371, 327684, 2, 720907, 262148, 4, 720906, 196612, 4, 720905, 196612, 4, 655369, 131076, 2, 655370, 262148, 2)
+
+[node name="Player" parent="." instance=ExtResource("6_yuyxe")]
+position = Vector2(92, 104)
+
+[node name="Level Transition" parent="." instance=ExtResource("7_yi16q")]
+position = Vector2(127, 85)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level Transition"]
+position = Vector2(20, 46)
+scale = Vector2(0.519231, 0.423077)
+texture = ExtResource("8_duok1")

@@ -1,0 +1,76 @@
+[gd_scene load_steps=9 format=3 uid="uid://cexncbyk53sbk"]
+
+[ext_resource type="Texture2D" uid="uid://rq5yeogh1gpe" path="res://assets/images/tilesets/level 03/tiles.png" id="1_k6pr7"]
+[ext_resource type="Texture2D" uid="uid://cp6pfwwu2xngh" path="res://assets/images/backgrounds/level 03/back.png" id="2_seqnd"]
+[ext_resource type="Texture2D" uid="uid://cqgbv22taagaf" path="res://assets/images/backgrounds/level 03/middle.png" id="3_ag3mq"]
+[ext_resource type="PackedScene" uid="uid://cepuistxrx2qm" path="res://scenes/player.tscn" id="4_ii4sg"]
+[ext_resource type="PackedScene" uid="uid://mu13syuul5mo" path="res://scenes/level_transition.tscn" id="5_myap1"]
+[ext_resource type="Texture2D" uid="uid://ddg3qcg33bmkc" path="res://assets/images/extras/level 03/scroll.png" id="6_jkvig"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rt4e1"]
+texture = ExtResource("1_k6pr7")
+margins = Vector2i(16, 16)
+separation = Vector2i(16, 0)
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+0:0/0/terrain_set = 0
+0:0/0/terrain = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+0:0/0/terrains_peering_bit/right_side = 0
+0:0/0/terrains_peering_bit/left_side = 0
+1:0/0 = 0
+1:0/0/terrain_set = 0
+1:0/0/terrain = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+1:0/0/terrains_peering_bit/right_side = 0
+1:0/0/terrains_peering_bit/left_side = 0
+
+[sub_resource type="TileSet" id="TileSet_nfoi4"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+terrain_set_0/mode = 0
+terrain_set_0/terrain_0/name = "ground"
+terrain_set_0/terrain_0/color = Color(0.501961, 0.345098, 0.25098, 1)
+sources/5 = SubResource("TileSetAtlasSource_rt4e1")
+
+[node name="Level 03" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(230, 2.08165e-12)
+
+[node name="Background" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(91, 179.5)
+scale = Vector2(1.4375, 1.31985)
+texture = ExtResource("2_seqnd")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(470, 2.08165e-12)
+
+[node name="Foreground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(218.5, 180.5)
+scale = Vector2(1.26823, 1.31985)
+texture = ExtResource("3_ag3mq")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_nfoi4")
+format = 2
+layer_0/tile_data = PackedInt32Array(327680, 65541, 0, 327681, 65541, 0, 327682, 65541, 0, 327683, 5, 0, 327684, 5, 0, 327685, 65541, 0, 327686, 65541, 0, 327687, 5, 0, 327688, 65541, 0, 327689, 65541, 0, 327690, 5, 0, 327691, 5, 0, 327692, 5, 0)
+
+[node name="Player" parent="." instance=ExtResource("4_ii4sg")]
+position = Vector2(59, 230)
+
+[node name="Level Transition" parent="." instance=ExtResource("5_myap1")]
+position = Vector2(670, 260)
+
+[node name="Sprite2D" type="Sprite2D" parent="Level Transition"]
+position = Vector2(50.0001, 52)
+scale = Vector2(0.0556163, 0.0139443)
+texture = ExtResource("6_jkvig")

@@ -365,6 +365,7 @@ radius = 11.0
 height = 50.0
 
 [node name="Area2D" type="Area2D"]
+collision_mask = 14
 
 [node name="Player" type="CharacterBody2D" parent="."]
 script = ExtResource("1_fvglc")

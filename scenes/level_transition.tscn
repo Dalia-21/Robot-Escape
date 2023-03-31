@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://mu13syuul5mo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gbnwh"]
+size = Vector2(56, 51)
+
+[node name="Level Transition" type="Node2D"]
+
+[node name="ItemArea" type="Area2D" parent="."]
+collision_layer = 4
+
+[node name="ItemCollisionShape" type="CollisionShape2D" parent="ItemArea"]
+position = Vector2(33, 32.5)
+shape = SubResource("RectangleShape2D_gbnwh")
