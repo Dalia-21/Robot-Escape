@@ -39,6 +39,11 @@ func _physics_process(delta):
 		$AnimatedSprite2D.play("idle")
 
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().is_in_group("traps"):
+			take_damage()
 
-func damage_taken():
+func take_damage():
+	lives -= 1
 	emit_signal("lost_life")

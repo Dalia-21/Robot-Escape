@@ -50,8 +50,7 @@ func connect_HUD_to_player_lives():
 		level_name % next_scene_no).get_node("Player")
 	var HUD_node = self.get_node("HUD/HUDLayer/HealthContainer")
 	if not player.lost_life.is_connected(Callable(HUD_node, "_on_lost_life")):
-		player.lost_life.connect(Callable(HUD_node, "_on_lost_life"))
+		player.lost_life.connect(Callable(HUD_node, "_on_life_lost"))
 		
 	var player_lives = player.lives
-	print(player.lives)
 	HUD_node.update_lives(player_lives)

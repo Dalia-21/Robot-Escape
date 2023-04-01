@@ -97,8 +97,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5jd2"]
 size = Vector2(27, 52.8789)
 
-[node name="Fire Trap" type="RigidBody2D"]
+[node name="Fire Trap" type="RigidBody2D" groups=["traps"]]
 collision_layer = 8
+collision_mask = 17
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(-1, -31)

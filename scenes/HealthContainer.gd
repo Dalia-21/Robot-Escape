@@ -15,6 +15,6 @@ func add_life():
 	add_child(life_instance)
 	total_lives += 1
 
-func _on_life_lost():
-	remove_child(total_lives)
+func _on_life_lost():  # Handle index out of bounds
+	remove_child(get_child(get_child_count()-1))
 	total_lives -= 1

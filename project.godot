@@ -50,3 +50,4 @@ shoot={
 2d_physics/layer_2="enemies"
 2d_physics/layer_3="interactables"
 2d_physics/layer_4="traps"
+2d_physics/layer_5="tilemap"
