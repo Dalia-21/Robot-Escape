@@ -1,0 +1,34 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" uid="uid://fj5abbf5n0ny" path="res://assets/images/sprites/hud/Battery.png" id="1_ku8xg"]
+
+[node name="HUD" type="Node2D"]
+
+[node name="HUDLayer" type="CanvasLayer" parent="."]
+
+[node name="HealthContainer" type="HBoxContainer" parent="HUDLayer"]
+layout_direction = 2
+offset_right = 56.0
+offset_bottom = 16.0
+scale = Vector2(3, 3)
+size_flags_stretch_ratio = 0.0
+
+[node name="Health1" type="TextureRect" parent="HUDLayer/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("1_ku8xg")
+
+[node name="Health2" type="TextureRect" parent="HUDLayer/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("1_ku8xg")
+
+[node name="Health3" type="TextureRect" parent="HUDLayer/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("1_ku8xg")
+
+[node name="Health4" type="TextureRect" parent="HUDLayer/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("1_ku8xg")
+
+[node name="Health5" type="TextureRect" parent="HUDLayer/HealthContainer"]
+layout_mode = 2
+texture = ExtResource("1_ku8xg")
