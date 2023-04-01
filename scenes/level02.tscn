@@ -1,13 +1,36 @@
-[gd_scene load_steps=11 format=3 uid="uid://cy5rwckcnbpg0"]
+[gd_scene load_steps=22 format=3 uid="uid://cy5rwckcnbpg0"]
 
 [ext_resource type="Texture2D" uid="uid://dnd8w8kporby0" path="res://assets/images/tilesets/level 02/Assets.png" id="1_t0lpc"]
 [ext_resource type="Texture2D" uid="uid://dc2qltx8kmm4w" path="res://assets/images/backgrounds/level 02/sky.png" id="2_hb1fq"]
 [ext_resource type="Texture2D" uid="uid://kkhy1njvubqb" path="res://assets/images/backgrounds/level 02/far-buildings.png" id="3_ofve2"]
 [ext_resource type="Texture2D" uid="uid://c31judq4scufs" path="res://assets/images/backgrounds/level 02/buildings.png" id="4_sk1q3"]
+[ext_resource type="PackedScene" uid="uid://cpmpfkxudx7y" path="res://scenes/level_02_traps/arrow_trap.tscn" id="5_3wxg6"]
 [ext_resource type="Texture2D" uid="uid://cd5rnlrxo60ii" path="res://assets/images/backgrounds/level 02/trees.png" id="5_6g2f4"]
+[ext_resource type="PackedScene" uid="uid://hk860rb82rpm" path="res://scenes/level_02_traps/toxic_trap.tscn" id="6_27xxb"]
 [ext_resource type="PackedScene" uid="uid://cepuistxrx2qm" path="res://scenes/player.tscn" id="6_yuyxe"]
+[ext_resource type="PackedScene" uid="uid://c0ffnx7vfwclc" path="res://scenes/level_02_traps/ceiling_trap.tscn" id="7_45exf"]
 [ext_resource type="PackedScene" uid="uid://mu13syuul5mo" path="res://scenes/level_transition.tscn" id="7_yi16q"]
 [ext_resource type="Texture2D" uid="uid://b8e0h0wvj6y0e" path="res://assets/images/extras/level 02/book.png" id="8_duok1"]
+[ext_resource type="PackedScene" uid="uid://n8qyu8hjf81k" path="res://scenes/level_02_traps/fire_breather_trap.tscn" id="8_nsllq"]
+[ext_resource type="PackedScene" uid="uid://dduq8hdo65yxi" path="res://scenes/level_02_traps/fire_trap.tscn" id="9_ooaxu"]
+[ext_resource type="PackedScene" uid="uid://dvdxvbpuu1dvj" path="res://scenes/level_02_traps/lightning_trap.tscn" id="10_rwoq0"]
+[ext_resource type="PackedScene" uid="uid://c5x7ueolhv4vm" path="res://scenes/level_02_traps/magic_trap.tscn" id="11_8xkny"]
+[ext_resource type="PackedScene" uid="uid://nbda8a6xshtb" path="res://scenes/level_02_traps/punch_trap.tscn" id="12_kadja"]
+[ext_resource type="PackedScene" uid="uid://lqlfqugplmbb" path="res://scenes/level_02_traps/sandworm_trap.tscn" id="13_btjtj"]
+[ext_resource type="PackedScene" uid="uid://plpiepnk50qt" path="res://scenes/level_02_traps/saw_trap.tscn" id="14_c2ecv"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_c0mws"]
+resource_name = "Traps"
+scenes/1/scene = ExtResource("5_3wxg6")
+scenes/2/scene = ExtResource("7_45exf")
+scenes/3/scene = ExtResource("8_nsllq")
+scenes/4/scene = ExtResource("9_ooaxu")
+scenes/5/scene = ExtResource("10_rwoq0")
+scenes/6/scene = ExtResource("11_8xkny")
+scenes/7/scene = ExtResource("12_kadja")
+scenes/8/scene = ExtResource("13_btjtj")
+scenes/9/scene = ExtResource("14_c2ecv")
+scenes/10/scene = ExtResource("6_27xxb")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_05bsi"]
 texture = ExtResource("1_t0lpc")
@@ -874,6 +897,7 @@ terrain_set_2/terrain_0/name = "ground"
 terrain_set_2/terrain_0/color = Color(0.207843, 0.341176, 0.772549, 1)
 navigation_layer_0/layers = 1
 sources/4 = SubResource("TileSetAtlasSource_05bsi")
+sources/0 = SubResource("TileSetScenesCollectionSource_c0mws")
 
 [node name="Level 02" type="Node2D"]
 

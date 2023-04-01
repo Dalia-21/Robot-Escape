@@ -1,4 +1,133 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6n5lb4a1cuhw"]
+[gd_scene load_steps=21 format=3 uid="uid://c0ffnx7vfwclc"]
+
+[ext_resource type="Texture2D" uid="uid://bhp3vs3hnijnp" path="res://assets/images/traps/level 02/Ceiling Trap/PNGs/Ceiling Trap - Level 3.png" id="1_hskou"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3mjn3"]
+atlas = ExtResource("1_hskou")
+region = Rect2(0, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkrop"]
+atlas = ExtResource("1_hskou")
+region = Rect2(96, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cm3u"]
+atlas = ExtResource("1_hskou")
+region = Rect2(192, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b21k7"]
+atlas = ExtResource("1_hskou")
+region = Rect2(288, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nwgks"]
+atlas = ExtResource("1_hskou")
+region = Rect2(384, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nguhl"]
+atlas = ExtResource("1_hskou")
+region = Rect2(480, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qtvi"]
+atlas = ExtResource("1_hskou")
+region = Rect2(576, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d27ap"]
+atlas = ExtResource("1_hskou")
+region = Rect2(672, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owjt7"]
+atlas = ExtResource("1_hskou")
+region = Rect2(768, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i17tu"]
+atlas = ExtResource("1_hskou")
+region = Rect2(864, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1p16m"]
+atlas = ExtResource("1_hskou")
+region = Rect2(960, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qtf6j"]
+atlas = ExtResource("1_hskou")
+region = Rect2(1056, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vodt"]
+atlas = ExtResource("1_hskou")
+region = Rect2(1152, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n0woo"]
+atlas = ExtResource("1_hskou")
+region = Rect2(1248, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rchna"]
+atlas = ExtResource("1_hskou")
+region = Rect2(1344, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k5etc"]
+atlas = ExtResource("1_hskou")
+region = Rect2(1440, 0, 96, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w52ts"]
+atlas = ExtResource("1_hskou")
+region = Rect2(1536, 0, 96, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_axqqm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3mjn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkrop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cm3u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b21k7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nwgks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nguhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qtvi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d27ap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owjt7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i17tu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1p16m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qtf6j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vodt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n0woo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rchna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k5etc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w52ts")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5jd2"]
 size = Vector2(48, 66.0625)
@@ -11,6 +140,8 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 [node name="Animation" type="AnimatedSprite2D" parent="RigidBody2D"]
 position = Vector2(0, -15)
 scale = Vector2(1.90625, 2.07031)
+sprite_frames = SubResource("SpriteFrames_axqqm")
+frame_progress = 0.275681
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
 position = Vector2(0, -14)

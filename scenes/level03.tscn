@@ -1,11 +1,22 @@
-[gd_scene load_steps=9 format=3 uid="uid://cexncbyk53sbk"]
+[gd_scene load_steps=14 format=3 uid="uid://cexncbyk53sbk"]
 
 [ext_resource type="Texture2D" uid="uid://rq5yeogh1gpe" path="res://assets/images/tilesets/level 03/tiles.png" id="1_k6pr7"]
 [ext_resource type="Texture2D" uid="uid://cp6pfwwu2xngh" path="res://assets/images/backgrounds/level 03/back.png" id="2_seqnd"]
 [ext_resource type="Texture2D" uid="uid://cqgbv22taagaf" path="res://assets/images/backgrounds/level 03/middle.png" id="3_ag3mq"]
+[ext_resource type="PackedScene" uid="uid://5yanfjeeyan3" path="res://scenes/level_03_traps/ground_plant_trap.tscn" id="3_swycf"]
 [ext_resource type="PackedScene" uid="uid://cepuistxrx2qm" path="res://scenes/player.tscn" id="4_ii4sg"]
+[ext_resource type="PackedScene" uid="uid://yx84daydepi4" path="res://scenes/level_03_traps/plant_turret_trap.tscn" id="4_w8vrb"]
+[ext_resource type="PackedScene" uid="uid://b87wtmfjlk7xc" path="res://scenes/level_03_traps/swinging_plant_trap.tscn" id="5_dnnal"]
 [ext_resource type="PackedScene" uid="uid://mu13syuul5mo" path="res://scenes/level_transition.tscn" id="5_myap1"]
+[ext_resource type="PackedScene" uid="uid://414dxq7ljhui" path="res://scenes/level_03_traps/thorns_trap.tscn" id="6_ayuwm"]
 [ext_resource type="Texture2D" uid="uid://ddg3qcg33bmkc" path="res://assets/images/extras/level 03/scroll.png" id="6_jkvig"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_3s5c2"]
+resource_name = "Traps"
+scenes/1/scene = ExtResource("3_swycf")
+scenes/2/scene = ExtResource("4_w8vrb")
+scenes/3/scene = ExtResource("5_dnnal")
+scenes/4/scene = ExtResource("6_ayuwm")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rt4e1"]
 texture = ExtResource("1_k6pr7")
@@ -36,6 +47,7 @@ terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "ground"
 terrain_set_0/terrain_0/color = Color(0.501961, 0.345098, 0.25098, 1)
 sources/5 = SubResource("TileSetAtlasSource_rt4e1")
+sources/0 = SubResource("TileSetScenesCollectionSource_3s5c2")
 
 [node name="Level 03" type="Node2D"]
 
