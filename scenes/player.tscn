@@ -1,7 +1,8 @@
-[gd_scene load_steps=51 format=3 uid="uid://cepuistxrx2qm"]
+[gd_scene load_steps=52 format=3 uid="uid://cepuistxrx2qm"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_fvglc"]
 [ext_resource type="Texture2D" uid="uid://vf66phgdabxu" path="res://assets/images/sprites/player/robot_image.png" id="2_vi08j"]
+[ext_resource type="AudioStream" uid="uid://gebkssr8kjqb" path="res://assets/sounds/sfx/Taking Damage - GameSupplyGuy - UnitLosesEnergeticShield.wav" id="3_kw3pb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yney6"]
 atlas = ExtResource("2_vi08j")
@@ -390,3 +391,6 @@ limit_top = 0
 limit_right = 1000000
 limit_bottom = 360
 editor_draw_limits = true
+
+[node name="TakingDamage" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_kw3pb")
