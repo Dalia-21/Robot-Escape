@@ -1,12 +1,21 @@
-[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://besoupuwndef6"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://rr82o62jnxc0"]
 
-[ext_resource type="PackedScene" uid="uid://2d4klpo62hrh" path="res://scenes/laser_trap.tscn" id="1_ededl"]
+[ext_resource type="PackedScene" uid="uid://c3rlu1w40heq1" path="res://scenes/level_01_traps/laser_spikes.tscn" id="1_4vijo"]
 [ext_resource type="Texture2D" uid="uid://q53be3u7h3u6" path="res://assets/images/tilesets/level 01/merged_tileset_image.png" id="1_um8og"]
+[ext_resource type="PackedScene" uid="uid://0ynolvhitywt" path="res://scenes/level_01_traps/laser_trap.tscn" id="2_7ubn1"]
+[ext_resource type="PackedScene" uid="uid://4srrp7kq08tv" path="res://scenes/level_01_traps/electric_turret.tscn" id="3_3ob0w"]
+[ext_resource type="PackedScene" uid="uid://dng1pdct5sab" path="res://scenes/level_01_traps/laser_turret.tscn" id="4_yfvf7"]
+[ext_resource type="PackedScene" uid="uid://b8m835uoshjs8" path="res://scenes/level_01_traps/saw.tscn" id="5_ncdeh"]
+[ext_resource type="PackedScene" uid="uid://jlh1lon58mgs" path="res://scenes/level_01_traps/wall_blades.tscn" id="6_qd3pd"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_ehwtj"]
 resource_name = "Traps"
-scenes/2/scene = ExtResource("1_ededl")
-scenes/2/display_placeholder = ExtResource("1_ededl")
+scenes/1/scene = ExtResource("1_4vijo")
+scenes/2/scene = ExtResource("2_7ubn1")
+scenes/3/scene = ExtResource("3_3ob0w")
+scenes/4/scene = ExtResource("4_yfvf7")
+scenes/5/scene = ExtResource("5_ncdeh")
+scenes/6/scene = ExtResource("6_qd3pd")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xy7o8"]
 resource_name = "Tileset"
