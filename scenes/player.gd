@@ -21,6 +21,10 @@ func _physics_process(delta):
 	
 	# Get the input direction and handle the movement/deceleration.
 	if direction:
+		if direction == -1:
+			$AnimatedSprite2D.flip_h = true
+		else:
+			$AnimatedSprite2D.flip_h = false
 		velocity.x = direction * SPEED
 		$AnimatedSprite2D.play("run")
 	else:
