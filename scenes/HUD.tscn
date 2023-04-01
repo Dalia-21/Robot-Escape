@@ -1,4 +1,4 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://cw1soeyo2kc43"]
 
 [ext_resource type="Texture2D" uid="uid://fj5abbf5n0ny" path="res://assets/images/sprites/hud/Battery.png" id="1_ku8xg"]
 
