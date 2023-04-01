@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cw1soeyo2kc43"]
+[gd_scene load_steps=3 format=3 uid="uid://cw1soeyo2kc43"]
 
+[ext_resource type="Script" path="res://scenes/HealthContainer.gd" id="1_jefju"]
 [ext_resource type="Texture2D" uid="uid://fj5abbf5n0ny" path="res://assets/images/sprites/hud/Battery.png" id="1_ku8xg"]
 
 [node name="HUD" type="Node2D"]
@@ -12,6 +13,7 @@ offset_right = 56.0
 offset_bottom = 16.0
 scale = Vector2(3, 3)
 size_flags_stretch_ratio = 0.0
+script = ExtResource("1_jefju")
 
 [node name="Health1" type="TextureRect" parent="HUDLayer/HealthContainer"]
 layout_mode = 2

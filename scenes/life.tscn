@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjttda0f0ikv"]
+
+[ext_resource type="Texture2D" uid="uid://fj5abbf5n0ny" path="res://assets/images/sprites/hud/Battery.png" id="1_tp4nc"]
+
+[node name="Health1" type="TextureRect"]
+texture = ExtResource("1_tp4nc")

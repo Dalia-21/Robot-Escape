@@ -1,21 +1,19 @@
 extends Node
 
-var scene_path = "res://scenes/level0%s.tscn"
+var scene_path = "res://scenes/level0%d.tscn"
 var next_scene_no = 1
 var next_scene = scene_path % next_scene_no
 var transition_item
-var level_name = "Level 0%s"
+var level_name = "Level 0%d"
 var next_scene_ready = false
 var last_scene_instance = null
 
 func _ready():
+	# Load HUD
+	var HUD_scene = load("res://scenes/HUD.tscn")
+	var HUD_instance = HUD_scene.instantiate()
+	add_child(HUD_instance)
 	load_next_scene()
-	#var scene = load(next_scene)
-	#var instance = scene.instantiate()
-	#add_child(instance)
-	#connect_to_body_entered()
-	#next_scene_no += 1
-	#next_scene = scene_path % next_scene_no
 	
 func _process(_delta):
 	if next_scene_ready:
@@ -36,6 +34,7 @@ func load_next_scene():
 			remove_child(last_scene_instance)
 		last_scene_instance = instance
 		connect_to_body_entered()
+		connect_HUD_to_player_lives()
 		next_scene_no += 1	
 
 func connect_to_body_entered():
@@ -46,3 +45,11 @@ func connect_to_body_entered():
 	if not transition_item.is_connected("body_entered",
 	Callable(self, "_on_body_entered")):
 		transition_item.body_entered.connect(Callable(self, "_on_body_entered"))
+
+func connect_HUD_to_player_lives():
+	# next_scene_no is incremented after this function
+	var player = get_tree().current_scene.get_node(
+		level_name % next_scene_no).get_node("Player/Player")
+	var HUD_node = self.get_node("HUD/HUDLayer/HealthContainer")
+	if not player.lost_life.is_connected(Callable(HUD_node, "_on_lost_life")):
+		player.lost_life.connect(Callable(HUD_node, "_on_lost_life"))
