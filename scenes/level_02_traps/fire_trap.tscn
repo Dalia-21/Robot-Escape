@@ -95,7 +95,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5jd2"]
-size = Vector2(48, 66.0625)
+size = Vector2(27, 52.8789)
 
 [node name="Fire Trap" type="Area2D"]
 position = Vector2(2.08165e-12, 2.08165e-12)
@@ -103,16 +103,16 @@ position = Vector2(2.08165e-12, 2.08165e-12)
 [node name="RigidBody2D" type="RigidBody2D" parent="."]
 
 [node name="Animation" type="AnimatedSprite2D" parent="RigidBody2D"]
-position = Vector2(0, -15)
-scale = Vector2(1.90625, 2.07031)
+position = Vector2(-1, -31)
+scale = Vector2(1.48438, 1.47266)
 sprite_frames = SubResource("SpriteFrames_86h6n")
 frame = 4
 frame_progress = 0.216435
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(0, -14)
+position = Vector2(-2, -14.8789)
 shape = SubResource("RectangleShape2D_h5jd2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -14)
+position = Vector2(-1, -15)
 shape = SubResource("RectangleShape2D_h5jd2")
