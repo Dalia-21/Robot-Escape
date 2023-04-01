@@ -1,6 +1,5 @@
-[gd_scene load_steps=23 format=3 uid="uid://dng1pdct5sab"]
+[gd_scene load_steps=22 format=3 uid="uid://dng1pdct5sab"]
 
-[ext_resource type="Script" path="res://scenes/level_01_traps/laser_turret.gd" id="1_wwbcv"]
 [ext_resource type="Texture2D" uid="uid://22m0bhsy0y1" path="res://assets/images/traps/level 01/laser_turret.png" id="2_87dvy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ybj0n"]
@@ -145,22 +144,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5jd2"]
 size = Vector2(31, 33.0625)
 
-[node name="Laser Turret" type="Area2D"]
-position = Vector2(2.08165e-12, 2.08165e-12)
-script = ExtResource("1_wwbcv")
+[node name="Laser Turret" type="RigidBody2D"]
+collision_layer = 8
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-
-[node name="Animation" type="AnimatedSprite2D" parent="RigidBody2D"]
+[node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(-2.07478e-12, -7.93751)
 scale = Vector2(1.5, 1.44141)
 sprite_frames = SubResource("SpriteFrames_im1a3")
 animation = &"idle"
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(2, -2)
-shape = SubResource("RectangleShape2D_h5jd2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2, -2.46875)
 shape = SubResource("RectangleShape2D_h5jd2")

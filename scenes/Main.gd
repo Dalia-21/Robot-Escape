@@ -47,7 +47,7 @@ func connect_to_body_entered():
 func connect_HUD_to_player_lives():
 	# next_scene_no is incremented after this function
 	var player = get_tree().current_scene.get_node(
-		level_name % next_scene_no).get_node("Player/Player")
+		level_name % next_scene_no).get_node("Player")
 	var HUD_node = self.get_node("HUD/HUDLayer/HealthContainer")
 	if not player.lost_life.is_connected(Callable(HUD_node, "_on_lost_life")):
 		player.lost_life.connect(Callable(HUD_node, "_on_lost_life"))

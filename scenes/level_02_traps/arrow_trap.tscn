@@ -132,12 +132,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5jd2"]
 size = Vector2(31, 23)
 
-[node name="Arrow Trap" type="Area2D"]
-position = Vector2(2.08165e-12, 2.08165e-12)
+[node name="Arrow Trap" type="RigidBody2D"]
+collision_layer = 8
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-
-[node name="Animation" type="AnimatedSprite2D" parent="RigidBody2D"]
+[node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(2.08165e-12, -9)
 scale = Vector2(1.13151, 1.05566)
 sprite_frames = SubResource("SpriteFrames_unv42")
@@ -145,10 +143,6 @@ animation = &"attack"
 frame = 4
 frame_progress = 0.959113
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(-1.5, -3.5)
-shape = SubResource("RectangleShape2D_h5jd2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -3)
 shape = SubResource("RectangleShape2D_h5jd2")

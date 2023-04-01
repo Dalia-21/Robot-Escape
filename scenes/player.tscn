@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://cepuistxrx2qm"]
+[gd_scene load_steps=51 format=3 uid="uid://cepuistxrx2qm"]
 
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_fvglc"]
 [ext_resource type="Texture2D" uid="uid://vf66phgdabxu" path="res://assets/images/sprites/player/robot_image.png" id="2_vi08j"]
@@ -361,28 +361,18 @@ animations = [{
 radius = 11.0
 height = 50.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_84foi"]
-radius = 11.0
-height = 50.0
-
-[node name="Area2D" type="Area2D"]
-collision_mask = 14
-
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_fvglc")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1yr15")
 animation = &"idle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_1cdft")
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_84foi")
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(3, 3)

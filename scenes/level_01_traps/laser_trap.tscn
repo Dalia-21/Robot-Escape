@@ -1,6 +1,5 @@
-[gd_scene load_steps=30 format=3 uid="uid://0ynolvhitywt"]
+[gd_scene load_steps=29 format=3 uid="uid://0ynolvhitywt"]
 
-[ext_resource type="Script" path="res://scenes/level_01_traps/laser_trap.gd" id="1_4l05u"]
 [ext_resource type="Texture2D" uid="uid://d4k06x11lbd73" path="res://assets/images/traps/level 01/laser_activate.png" id="2_4866a"]
 [ext_resource type="Texture2D" uid="uid://b7npjd06lsfvd" path="res://assets/images/traps/level 01/laser_deactivate.png" id="3_kjh8s"]
 [ext_resource type="Texture2D" uid="uid://cp6ufv4iowpn0" path="res://assets/images/traps/level 01/laser_idle.png" id="4_p63p7"]
@@ -187,22 +186,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5jd2"]
 size = Vector2(12, 62.125)
 
-[node name="Laser Trap" type="Area2D"]
-position = Vector2(2.08165e-12, 2.08165e-12)
-script = ExtResource("1_4l05u")
+[node name="Laser Trap" type="RigidBody2D"]
+collision_layer = 8
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-
-[node name="Animation" type="AnimatedSprite2D" parent="RigidBody2D"]
+[node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(1.5, -15.875)
 scale = Vector2(1.90625, 2.07031)
 sprite_frames = SubResource("SpriteFrames_b5ngy")
 animation = &"idle"
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_h5jd2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1, -15.9375)
 shape = SubResource("RectangleShape2D_h5jd2")

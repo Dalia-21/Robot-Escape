@@ -1,6 +1,6 @@
 [gd_scene load_steps=31 format=3 uid="uid://lqlfqugplmbb"]
 
-[ext_resource type="Texture2D" uid="uid://ck7xf1xhprq0s" path="res://assets/images/traps/level 02/Sandworm trap/PNGs/Sandworm trap - Level 3.png" id="1_l6ekl"]
+[ext_resource type="Texture2D" uid="uid://ck7xf1xhprq0s" path="res://assets/images/traps/level 02/Sandworm Trap/PNGs/Sandworm trap - Level 3.png" id="1_l6ekl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_05hyf"]
 atlas = ExtResource("1_l6ekl")
@@ -202,21 +202,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5jd2"]
 size = Vector2(48, 66.0625)
 
-[node name="Sandworm Trap" type="Area2D"]
-position = Vector2(2.08165e-12, 2.08165e-12)
+[node name="Sandworm Trap" type="RigidBody2D"]
+collision_layer = 8
 
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
-
-[node name="Animation" type="AnimatedSprite2D" parent="RigidBody2D"]
+[node name="Animation" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -15)
 scale = Vector2(1.90625, 2.07031)
 sprite_frames = SubResource("SpriteFrames_exxlv")
 frame_progress = 0.853291
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="RigidBody2D"]
-position = Vector2(0, -14)
-shape = SubResource("RectangleShape2D_h5jd2")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(0, -14)
 shape = SubResource("RectangleShape2D_h5jd2")
