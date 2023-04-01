@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c425xwvfadlwr"
+path="res://.godot/imported/Level03 - Escapism Softworks - Fire On Board.mp3-3fd40b43509b3a3f8d5a768dfd63ef00.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/music/Level03 - Escapism Softworks - Fire On Board.mp3"
+dest_files=["res://.godot/imported/Level03 - Escapism Softworks - Fire On Board.mp3-3fd40b43509b3a3f8d5a768dfd63ef00.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

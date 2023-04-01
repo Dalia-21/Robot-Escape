@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cexncbyk53sbk"]
+[gd_scene load_steps=15 format=3 uid="uid://cexncbyk53sbk"]
 
 [ext_resource type="Texture2D" uid="uid://rq5yeogh1gpe" path="res://assets/images/tilesets/level 03/tiles.png" id="1_k6pr7"]
 [ext_resource type="Texture2D" uid="uid://cp6pfwwu2xngh" path="res://assets/images/backgrounds/level 03/back.png" id="2_seqnd"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://mu13syuul5mo" path="res://scenes/level_transition.tscn" id="5_myap1"]
 [ext_resource type="PackedScene" uid="uid://414dxq7ljhui" path="res://scenes/level_03_traps/thorns_trap.tscn" id="6_ayuwm"]
 [ext_resource type="Texture2D" uid="uid://ddg3qcg33bmkc" path="res://assets/images/extras/level 03/scroll.png" id="6_jkvig"]
+[ext_resource type="AudioStream" uid="uid://c425xwvfadlwr" path="res://assets/sounds/music/Level03 - Escapism Softworks - Fire On Board.mp3" id="11_lq5tk"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_3s5c2"]
 resource_name = "Traps"
@@ -86,3 +87,8 @@ position = Vector2(670, 260)
 position = Vector2(50.0001, 52)
 scale = Vector2(0.0556163, 0.0139443)
 texture = ExtResource("6_jkvig")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_lq5tk")
+volume_db = 6.0
+autoplay = true

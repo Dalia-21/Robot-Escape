@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cy5rwckcnbpg0"]
+[gd_scene load_steps=23 format=3 uid="uid://cy5rwckcnbpg0"]
 
 [ext_resource type="Texture2D" uid="uid://dnd8w8kporby0" path="res://assets/images/tilesets/level 02/Assets.png" id="1_t0lpc"]
 [ext_resource type="Texture2D" uid="uid://dc2qltx8kmm4w" path="res://assets/images/backgrounds/level 02/sky.png" id="2_hb1fq"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://nbda8a6xshtb" path="res://scenes/level_02_traps/punch_trap.tscn" id="12_kadja"]
 [ext_resource type="PackedScene" uid="uid://lqlfqugplmbb" path="res://scenes/level_02_traps/sandworm_trap.tscn" id="13_btjtj"]
 [ext_resource type="PackedScene" uid="uid://plpiepnk50qt" path="res://scenes/level_02_traps/saw_trap.tscn" id="14_c2ecv"]
+[ext_resource type="AudioStream" uid="uid://ro4kdqi8q36" path="res://assets/sounds/music/Level02 - sepha - Atmospheric Jungle Tool.mp3" id="19_mbw4a"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_c0mws"]
 resource_name = "Traps"
@@ -954,3 +955,7 @@ position = Vector2(127, 85)
 position = Vector2(20, 46)
 scale = Vector2(0.519231, 0.423077)
 texture = ExtResource("8_duok1")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("19_mbw4a")
+autoplay = true
