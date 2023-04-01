@@ -26,7 +26,6 @@ func _on_body_entered(_body):
 func load_next_scene():
 	next_scene = scene_path % next_scene_no
 	if ResourceLoader.exists(next_scene):
-		print(next_scene + " exists!")
 		var scene = load(next_scene)
 		var instance = scene.instantiate()
 		add_child(instance)
@@ -39,7 +38,6 @@ func load_next_scene():
 
 func connect_to_body_entered():
 	var current_level_name = level_name % next_scene_no
-	print(current_level_name)
 	transition_item = get_tree().current_scene.get_node(current_level_name +
 	"/Level Transition/ItemArea")
 	if not transition_item.is_connected("body_entered",
@@ -53,3 +51,7 @@ func connect_HUD_to_player_lives():
 	var HUD_node = self.get_node("HUD/HUDLayer/HealthContainer")
 	if not player.lost_life.is_connected(Callable(HUD_node, "_on_lost_life")):
 		player.lost_life.connect(Callable(HUD_node, "_on_lost_life"))
+		
+	var player_lives = player.lives
+	print(player.lives)
+	HUD_node.update_lives(player_lives)
