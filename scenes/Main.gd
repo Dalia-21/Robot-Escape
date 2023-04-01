@@ -33,7 +33,7 @@ func load_next_scene():
 			remove_child(last_scene_instance)
 		last_scene_instance = instance
 		connect_to_body_entered()
-		connect_HUD_to_player_lives()
+		connect_to_player_lives()
 		next_scene_no += 1	
 
 func connect_to_body_entered():
@@ -44,13 +44,45 @@ func connect_to_body_entered():
 	Callable(self, "_on_body_entered")):
 		transition_item.body_entered.connect(Callable(self, "_on_body_entered"))
 
-func connect_HUD_to_player_lives():
+func connect_to_player_lives():
 	# next_scene_no is incremented after this function
 	var player = get_tree().current_scene.get_node(
 		level_name % next_scene_no).get_node("Player")
-	var HUD_node = self.get_node("HUD/HUDLayer/HealthContainer")
-	if not player.lost_life.is_connected(Callable(HUD_node, "_on_lost_life")):
-		player.lost_life.connect(Callable(HUD_node, "_on_life_lost"))
+	if not player.lost_life.is_connected(Callable(self, "_on_life_lost")):
+		player.lost_life.connect(Callable(self, "_on_life_lost"))
 		
-	var player_lives = player.lives
-	HUD_node.update_lives(player_lives)
+	# Set initial life value for HUD
+	var HUD_node = self.get_node("HUD/HUDLayer/HealthContainer")
+	HUD_node.update_lives(player.lives)
+
+func _on_life_lost():
+	var current_level_name = level_name % (next_scene_no - 1)
+	var HUD_node = self.get_node("HUD/HUDLayer/HealthContainer")
+	var player = get_tree().current_scene.get_node(
+		current_level_name).get_node("Player")
+		
+	var nearest_spawn_point_x = 0
+	player.lives -= 1
+	if player.lives <= 0:  # Work out how to restart music
+		player.die()
+		player.lives = player.max_lives
+		HUD_node.update_lives(player.lives)
+		
+	else:
+		player.set_collision_mask_value(4, false)
+		HUD_node.update_lives(player.lives)
+		nearest_spawn_point_x = find_nearest_spawn_point(player)
+		
+	player.position.x = nearest_spawn_point_x
+	player.position.y = 0
+	player.set_collision_mask_value(4, true)
+	
+		
+func find_nearest_spawn_point(player, dead=false):
+	var spawn_points = get_tree().get_nodes_in_group("spawn_points")
+	var viable_spawn_points = []
+	for spawn_point in spawn_points:
+		if player.position.x > spawn_point.position.x:
+			viable_spawn_points.append(spawn_point.position.x)
+	
+	return viable_spawn_points.max()

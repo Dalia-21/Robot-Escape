@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -400.0
 
 # Player lives
 @export var lives: int = 5
+@export var max_lives: int = 5
 
 signal lost_life
 
@@ -42,8 +43,20 @@ func _physics_process(delta):
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		if collision.get_collider().is_in_group("traps"):
-			take_damage()
+			#take_damage()
+			emit_signal("lost_life")
 
 func take_damage():
 	lives -= 1
-	emit_signal("lost_life")
+	if lives <= 0:
+		die()
+	else:
+		self.set_collision_mask_value(4, false)
+		respawn()
+		emit_signal("lost_life")
+
+func respawn():
+	$AnimatedSprite2D.play("get_hit")
+	
+func die():
+	$AnimatedSprite2D.play("die")

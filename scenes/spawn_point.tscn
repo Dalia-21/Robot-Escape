@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdw3ghoy3osdi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6216f"]
+
+[node name="Spawn Point" type="Area2D" groups=["spawn_points"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_6216f")
