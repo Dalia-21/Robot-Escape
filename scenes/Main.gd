@@ -71,7 +71,8 @@ func play_credits():
 	
 func _back_to_menu():
 	var HUD_node = get_tree().current_scene.get_node("HUD")
-	remove_child(HUD_node)
+	if HUD_node:
+		remove_child(HUD_node)
 	load_main_menu()
 	
 func _on_exit_button_up():
