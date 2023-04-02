@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0m1cjvvovqrb"]
+[gd_scene load_steps=7 format=3 uid="uid://b0m1cjvvovqrb"]
 
+[ext_resource type="Script" path="res://scenes/level_02_traps/AnimationPlayerScript.gd" id="1_ktdbi"]
 [ext_resource type="Texture2D" uid="uid://b3n7lu6a576oy" path="res://assets/images/traps/level 02/Magic trap/PNGs/Magic trap - Level 3.png" id="1_q8v2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5jd2"]
@@ -77,9 +78,11 @@ position = Vector2(-1.5, 9.51562)
 shape = SubResource("RectangleShape2D_h5jd2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 0.8
 libraries = {
 "": SubResource("AnimationLibrary_2mcfy")
 }
+script = ExtResource("1_ktdbi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_q8v2x")

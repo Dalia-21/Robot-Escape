@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://n8qyu8hjf81k"]
+[gd_scene load_steps=7 format=3 uid="uid://n8qyu8hjf81k"]
 
+[ext_resource type="Script" path="res://scenes/level_02_traps/AnimationPlayerScript.gd" id="1_8osl6"]
 [ext_resource type="Texture2D" uid="uid://cmttelxgh378v" path="res://assets/images/traps/level 02/Fire Breather Trap/PNGs/Fire Thrower Trap - Level 3.png" id="1_eclyf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5jd2"]
-size = Vector2(105, 105.5)
+size = Vector2(64, 51.75)
 
 [sub_resource type="Animation" id="Animation_wrj0k"]
 length = 0.001
@@ -73,16 +74,21 @@ collision_mask = 17
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-38.5, 7.75)
+position = Vector2(-27, 14.875)
 shape = SubResource("RectangleShape2D_h5jd2")
-disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+reset_on_save = false
+playback_process_mode = 0
 libraries = {
 "": SubResource("AnimationLibrary_d8g6x")
 }
+script = ExtResource("1_8osl6")
+metadata/autoplay = "trap"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2.38419e-07, 11)
+scale = Vector2(0.65625, 0.625)
 texture = ExtResource("1_eclyf")
 hframes = 25
-frame = 1
+frame = 17

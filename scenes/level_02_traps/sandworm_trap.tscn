@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://blpcy55uo6jpn"]
+[gd_scene load_steps=10 format=3 uid="uid://blpcy55uo6jpn"]
 
+[ext_resource type="Script" path="res://scenes/level_02_traps/AnimationPlayerScript.gd" id="1_4if0a"]
 [ext_resource type="Texture2D" uid="uid://ck7xf1xhprq0s" path="res://assets/images/traps/level 02/Sandworm Trap/PNGs/Sandworm trap - Level 3.png" id="1_r3vxw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o42o1"]
@@ -170,9 +171,11 @@ position = Vector2(46, -2)
 shape = SubResource("RectangleShape2D_fl7m0")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 0.8
 libraries = {
 "": SubResource("AnimationLibrary_2mcfy")
 }
+script = ExtResource("1_4if0a")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_r3vxw")

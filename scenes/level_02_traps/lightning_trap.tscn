@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvdxvbpuu1dvj"]
+[gd_scene load_steps=7 format=3 uid="uid://dvdxvbpuu1dvj"]
 
+[ext_resource type="Script" path="res://scenes/level_02_traps/AnimationPlayerScript.gd" id="1_tvs50"]
 [ext_resource type="Texture2D" uid="uid://c5lwqif8y0lub" path="res://assets/images/traps/level 02/Lightning Trap/PNGs/Lightning Trap - Level 3.png" id="1_vxxi1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5jd2"]
-size = Vector2(52, 95)
+size = Vector2(50, 95)
 
 [sub_resource type="Animation" id="Animation_hpdy7"]
 length = 0.001
@@ -73,13 +74,15 @@ collision_mask = 17
 freeze = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, 0.5)
+position = Vector2(-1, 0.5)
 shape = SubResource("RectangleShape2D_h5jd2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 0.8
 libraries = {
 "": SubResource("AnimationLibrary_2mcfy")
 }
+script = ExtResource("1_tvs50")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_vxxi1")

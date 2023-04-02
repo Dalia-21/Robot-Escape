@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://coqblhi023inp"]
+[gd_scene load_steps=7 format=3 uid="uid://coqblhi023inp"]
 
 [ext_resource type="Texture2D" uid="uid://do0hl1v01piit" path="res://assets/images/traps/level 02/Punch Trap/PNGs/Punch Trap - Level 3.png" id="1_hs4ed"]
+[ext_resource type="Script" path="res://scenes/level_02_traps/AnimationPlayerScript.gd" id="1_xgida"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5jd2"]
 size = Vector2(28, 34.0312)
@@ -77,9 +78,11 @@ position = Vector2(0, 2.01562)
 shape = SubResource("RectangleShape2D_h5jd2")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+speed_scale = 0.8
 libraries = {
 "": SubResource("AnimationLibrary_2mcfy")
 }
+script = ExtResource("1_xgida")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_hs4ed")
