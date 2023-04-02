@@ -70,6 +70,8 @@ func play_credits():
 		main_menu_button.button_up.connect(Callable(self, "_back_to_menu"))
 	
 func _back_to_menu():
+	var HUD_node = get_tree().current_scene.get_node("HUD")
+	remove_child(HUD_node)
 	load_main_menu()
 	
 func _on_exit_button_up():
@@ -91,6 +93,8 @@ func load_next_scene():
 		connect_to_player_lives()
 		next_scene_no += 1
 	else:  # No more game scenes exist
+		var HUD_node = get_tree().current_scene.get_node("HUD")
+		remove_child(HUD_node)
 		play_credits()
 
 func connect_to_body_entered():
