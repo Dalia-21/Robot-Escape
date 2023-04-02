@@ -9,16 +9,43 @@ var next_scene_ready = false
 var last_scene_instance = null
 
 func _ready():
-	# Load HUD
-	var HUD_scene = load("res://scenes/HUD.tscn")
-	var HUD_instance = HUD_scene.instantiate()
-	add_child(HUD_instance)
-	load_next_scene()
+	var menu_scene = load("res://scenes/menu.tscn")
+	var menu_instance = menu_scene.instantiate()
+	add_child(menu_instance)
+	last_scene_instance = menu_instance
+	
+	var button_container = get_tree().current_scene.get_node(
+		"Menu/MarginContainer/MenuContainer/ButtonContainer")
+	
+	var start_button = button_container.get_node("MarginContainer/StartButton")
+	if not start_button.button_up.is_connected(Callable(self, "_on_start_button_up")):
+		start_button.button_up.connect(Callable(self, "_on_start_button_up"))
+
+	var credits_button = button_container.get_node("MarginContainer2/CreditsButton")
+	if not credits_button.button_up.is_connected(Callable(self, "_on_credits_button_up")):
+		credits_button.button_up.connect(Callable(self, "_on_credit_button_up"))
+
+	var exit_button = button_container.get_node("MarginContainer3/ExitButton")
+	if not exit_button.button_up.is_connected(Callable(self, "_on_exit_button_up")):
+		exit_button.button_up.connect(Callable(self, "_on_exit_button_up"))
 	
 func _process(_delta):
 	if next_scene_ready:
 		load_next_scene()
 		next_scene_ready = false
+		
+func _on_start_button_up():
+	# Load HUD
+	var HUD_scene = load("res://scenes/HUD.tscn")
+	var HUD_instance = HUD_scene.instantiate()
+	add_child(HUD_instance)
+	next_scene_ready = true
+	
+func _on_credits_button_up():
+	pass  # Display credits
+	
+func _on_exit_button_up():
+	get_tree().quit()
 	
 func _on_body_entered(_body):
 	next_scene_ready = true
@@ -76,8 +103,6 @@ func _on_life_lost():
 		HUD_node.update_lives(player.lives)
 		nearest_spawn_point_x = find_nearest_spawn_point(player)
 		
-	print(player.position)
-	print(nearest_spawn_point_x)
 	player.respawn()
 	player.position.x = nearest_spawn_point_x
 	player.position.y = 0
