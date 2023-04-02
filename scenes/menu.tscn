@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://lasa2wkw6vvb"]
+
+[ext_resource type="Texture2D" uid="uid://blcwa4vjmbxcy" path="res://assets/images/backgrounds/Menu.png" id="1_cr0si"]
+[ext_resource type="FontFile" uid="uid://bsb873sg42vyn" path="res://assets/fonts/robot-9000-font/Robot9000Italic-YzxE8.ttf" id="2_fl1th"]
+[ext_resource type="FontFile" uid="uid://8rllcomrvwxd" path="res://assets/fonts/robot-9000-font/Robot9000-MVxZx.ttf" id="3_isd25"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2pf7"]
+bg_color = Color(0, 0, 0, 0.588235)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prwyl"]
+bg_color = Color(0.325441, 0.325441, 0.325441, 0.392157)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gg1a8"]
+bg_color = Color(0.117647, 0.117647, 0.117647, 0.784314)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Menu" type="Node2D"]
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_cr0si")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 100
+
+[node name="MenuContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/MenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_fl1th")
+theme_override_font_sizes/font_size = 125
+text = "Robot Escape!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MenuContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="StartButton" type="Button" parent="MarginContainer/MenuContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_isd25")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_q2pf7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_prwyl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gg1a8")
+text = "Start Game"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/MenuContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="CreditsButton" type="Button" parent="MarginContainer/MenuContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_isd25")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_q2pf7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_prwyl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gg1a8")
+text = "Credits"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/MenuContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_right = 200
+
+[node name="ExitButton" type="Button" parent="MarginContainer/MenuContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_isd25")
+theme_override_font_sizes/font_size = 75
+theme_override_styles/normal = SubResource("StyleBoxFlat_q2pf7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_prwyl")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gg1a8")
+text = "Exit"
