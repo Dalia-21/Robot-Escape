@@ -46,6 +46,10 @@ func _physics_process(delta):
 		$InvincibilityTimer.is_stopped():
 			emit_signal("lost_life")
 			$InvincibilityTimer.start()
+	
+	if self.position.y > $Camera2D.limit_bottom + 100 and $InvincibilityTimer.is_stopped():
+		emit_signal("lost_life")
+		$InvincibilityTimer.start()
 			
 
 func respawn():
