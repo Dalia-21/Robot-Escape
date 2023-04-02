@@ -184,19 +184,19 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5jd2"]
-size = Vector2(48, 66.0625)
+size = Vector2(48, 55.0078)
 
 [node name="Plant Turret" type="RigidBody2D" groups=["traps"]]
 collision_layer = 8
 collision_mask = 17
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -15)
-scale = Vector2(1.90625, 2.07031)
+position = Vector2(1, 17)
+scale = Vector2(1.57812, 1.7861)
 sprite_frames = SubResource("SpriteFrames_nfviq")
 animation = &"fire_right"
 frame_progress = 0.6103
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -12)
+position = Vector2(-1, 23.5039)
 shape = SubResource("RectangleShape2D_h5jd2")
