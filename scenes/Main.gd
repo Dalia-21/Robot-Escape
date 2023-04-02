@@ -9,9 +9,14 @@ var next_scene_ready = false
 var last_scene_instance = null
 
 func _ready():
+	load_main_menu()
+	
+func load_main_menu():
 	var menu_scene = load("res://scenes/menu.tscn")
 	var menu_instance = menu_scene.instantiate()
 	add_child(menu_instance)
+	if last_scene_instance != null:
+		remove_child(last_scene_instance)
 	last_scene_instance = menu_instance
 	
 	var button_container = get_tree().current_scene.get_node(
@@ -23,11 +28,12 @@ func _ready():
 
 	var credits_button = button_container.get_node("MarginContainer2/CreditsButton")
 	if not credits_button.button_up.is_connected(Callable(self, "_on_credits_button_up")):
-		credits_button.button_up.connect(Callable(self, "_on_credit_button_up"))
+		credits_button.button_up.connect(Callable(self, "_on_credits_button_up"))
 
 	var exit_button = button_container.get_node("MarginContainer3/ExitButton")
 	if not exit_button.button_up.is_connected(Callable(self, "_on_exit_button_up")):
 		exit_button.button_up.connect(Callable(self, "_on_exit_button_up"))
+	
 	
 func _process(_delta):
 	if next_scene_ready:
@@ -41,8 +47,30 @@ func _on_start_button_up():
 	add_child(HUD_instance)
 	next_scene_ready = true
 	
+	var quit_button = get_tree().current_scene.get_node(
+		"HUD/HUDLayer/MenuContainer/ButtonContainer/QuitButton")
+	
+	if not quit_button.button_up.is_connected(Callable(self, "_back_to_menu")):
+		quit_button.button_up.connect(Callable(self, "_back_to_menu"))
+	
 func _on_credits_button_up():
-	pass  # Display credits
+	play_credits()
+	
+func play_credits():
+	var credits_scene = load("res://scenes/credits.tscn")
+	var credits_instance = credits_scene.instantiate()
+	add_child(credits_instance)
+	remove_child(last_scene_instance)
+	last_scene_instance = credits_instance
+	
+	var main_menu_button = get_tree().current_scene.get_node(
+		"Credits/MarginContainer/ContentsContainer/ButtonContainer/MarginContainer/ExitButton")
+		
+	if not main_menu_button.button_up.is_connected(Callable(self, "_back_to_menu")):
+		main_menu_button.button_up.connect(Callable(self, "_back_to_menu"))
+	
+func _back_to_menu():
+	load_main_menu()
 	
 func _on_exit_button_up():
 	get_tree().quit()
@@ -61,7 +89,9 @@ func load_next_scene():
 		last_scene_instance = instance
 		connect_to_body_entered()
 		connect_to_player_lives()
-		next_scene_no += 1	
+		next_scene_no += 1
+	else:  # No more game scenes exist
+		play_credits()
 
 func connect_to_body_entered():
 	var current_level_name = level_name % next_scene_no

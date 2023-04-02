@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cw1soeyo2kc43"]
+[gd_scene load_steps=3 format=3 uid="uid://cw1soeyo2kc43"]
 
 [ext_resource type="Script" path="res://scenes/HealthContainer.gd" id="1_jefju"]
+[ext_resource type="Texture2D" uid="uid://wh1rqi2ybc65" path="res://assets/images/extras/Option.png" id="2_ucdmm"]
 
 [node name="HUD" type="Node2D"]
 
@@ -13,3 +14,27 @@ offset_bottom = 16.0
 scale = Vector2(3, 3)
 size_flags_stretch_ratio = 0.0
 script = ExtResource("1_jefju")
+
+[node name="MenuContainer" type="VBoxContainer" parent="HUDLayer"]
+offset_top = 64.0
+offset_right = 64.0
+offset_bottom = 144.0
+
+[node name="ButtonContainer" type="MarginContainer" parent="HUDLayer/MenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="QuitButton" type="TextureButton" parent="HUDLayer/MenuContainer/ButtonContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_ucdmm")
+texture_pressed = ExtResource("2_ucdmm")
+texture_hover = ExtResource("2_ucdmm")
+stretch_mode = 0
+
+[node name="LabelContainer" type="MarginContainer" parent="HUDLayer/MenuContainer"]
+layout_mode = 2
+
+[node name="QuitLabel" type="Label" parent="HUDLayer/MenuContainer/LabelContainer"]
+layout_mode = 2
+text = "Quit"
+horizontal_alignment = 1
