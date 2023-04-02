@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cexncbyk53sbk"]
+[gd_scene load_steps=16 format=3 uid="uid://cexncbyk53sbk"]
 
 [ext_resource type="Texture2D" uid="uid://rq5yeogh1gpe" path="res://assets/images/tilesets/level 03/tiles.png" id="1_k6pr7"]
 [ext_resource type="Texture2D" uid="uid://cp6pfwwu2xngh" path="res://assets/images/backgrounds/level 03/back.png" id="2_seqnd"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://414dxq7ljhui" path="res://scenes/level_03_traps/thorns_trap.tscn" id="6_ayuwm"]
 [ext_resource type="Texture2D" uid="uid://ddg3qcg33bmkc" path="res://assets/images/extras/level 03/scroll.png" id="6_jkvig"]
 [ext_resource type="AudioStream" uid="uid://c425xwvfadlwr" path="res://assets/sounds/music/Level03 - Escapism Softworks - Fire On Board.mp3" id="11_lq5tk"]
+[ext_resource type="PackedScene" uid="uid://cdw3ghoy3osdi" path="res://scenes/spawn_point.tscn" id="12_vvkf6"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_3s5c2"]
 resource_name = "Traps"
@@ -76,10 +77,10 @@ texture = ExtResource("3_ag3mq")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_nfoi4")
 format = 2
-layer_0/tile_data = PackedInt32Array(327680, 65541, 0, 327681, 65541, 0, 327682, 65541, 0, 327683, 5, 0, 327684, 5, 0, 327685, 65541, 0, 327686, 65541, 0, 327687, 5, 0, 327688, 65541, 0, 327689, 65541, 0, 327690, 5, 0, 327691, 5, 0, 327692, 5, 0)
+layer_0/tile_data = PackedInt32Array(327680, 65541, 0, 327681, 65541, 0, 327682, 65541, 0, 327683, 5, 0, 327684, 5, 0, 327685, 65541, 0, 327686, 65541, 0, 327687, 5, 0, 327688, 65541, 0, 327689, 65541, 0, 327690, 5, 0, 327691, 5, 0, 327692, 5, 0, 393215, 5, 0, 393214, 65541, 0, 393213, 65541, 0, 393212, 5, 0, 393211, 65541, 0, 393210, 65541, 0, 327674, 5, 0, 262138, 5, 0, 196602, 5, 0, 131066, 5, 0, 65530, 5, 0)
 
 [node name="Player" parent="." instance=ExtResource("4_ii4sg")]
-position = Vector2(59, 230)
+position = Vector2(16, 289)
 
 [node name="Level Transition" parent="." instance=ExtResource("5_myap1")]
 position = Vector2(670, 260)
@@ -93,3 +94,5 @@ texture = ExtResource("6_jkvig")
 stream = ExtResource("11_lq5tk")
 volume_db = 6.0
 autoplay = true
+
+[node name="Spawn Point" parent="." instance=ExtResource("12_vvkf6")]
