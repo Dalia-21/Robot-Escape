@@ -56,10 +56,14 @@ func connect_to_player_lives():
 	HUD_node.update_lives(player.lives)
 
 func _on_life_lost():
+	# Bug exists where dying more than once in rapid succession
+	# crashes game with a nil value for nearest_spawn_point_x
 	var current_level_name = level_name % (next_scene_no - 1)
 	var HUD_node = self.get_node("HUD/HUDLayer/HealthContainer")
 	var player = get_tree().current_scene.get_node(
 		current_level_name).get_node("Player")
+	
+	player.set_collision_mask_value(4, false)
 		
 	var nearest_spawn_point_x = 0
 	player.lives -= 1
@@ -69,20 +73,25 @@ func _on_life_lost():
 		HUD_node.update_lives(player.lives)
 		
 	else:
-		player.set_collision_mask_value(4, false)
 		HUD_node.update_lives(player.lives)
 		nearest_spawn_point_x = find_nearest_spawn_point(player)
 		
+	print(player.position)
+	print(nearest_spawn_point_x)
+	player.respawn()
 	player.position.x = nearest_spawn_point_x
 	player.position.y = 0
 	player.set_collision_mask_value(4, true)
 	
-		
-func find_nearest_spawn_point(player, dead=false):
+	
+func find_nearest_spawn_point(player):
 	var spawn_points = get_tree().get_nodes_in_group("spawn_points")
 	var viable_spawn_points = []
 	for spawn_point in spawn_points:
-		if player.position.x > spawn_point.position.x:
+		if player.position.x >= spawn_point.position.x:
 			viable_spawn_points.append(spawn_point.position.x)
+	
+	if player.position.x == 0:
+		return 0
 	
 	return viable_spawn_points.max()

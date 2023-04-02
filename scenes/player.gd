@@ -42,21 +42,15 @@ func _physics_process(delta):
 	move_and_slide()
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
-		if collision.get_collider().is_in_group("traps"):
-			#take_damage()
+		if collision.get_collider().is_in_group("traps") and \
+		$InvincibilityTimer.is_stopped():
 			emit_signal("lost_life")
-
-func take_damage():
-	lives -= 1
-	if lives <= 0:
-		die()
-	else:
-		self.set_collision_mask_value(4, false)
-		respawn()
-		emit_signal("lost_life")
+			$InvincibilityTimer.start()
+			
 
 func respawn():
 	$AnimatedSprite2D.play("get_hit")
+	$TakingDamageSound.play()
 	
 func die():
 	$AnimatedSprite2D.play("die")

@@ -1,5 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://dng1pdct5sab"]
+[gd_scene load_steps=19 format=3 uid="uid://dng1pdct5sab"]
 
+[ext_resource type="Script" path="res://scenes/level_01_traps/laser_turret.gd" id="1_b2nk7"]
 [ext_resource type="Texture2D" uid="uid://22m0bhsy0y1" path="res://assets/images/traps/level 01/laser_turret.png" id="2_87dvy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ybj0n"]
@@ -54,22 +55,6 @@ region = Rect2(352, 0, 32, 32)
 atlas = ExtResource("2_87dvy")
 region = Rect2(384, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hknvq"]
-atlas = ExtResource("2_87dvy")
-region = Rect2(416, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_32hl3"]
-atlas = ExtResource("2_87dvy")
-region = Rect2(448, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_507tf"]
-atlas = ExtResource("2_87dvy")
-region = Rect2(480, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gvvlt"]
-atlas = ExtResource("2_87dvy")
-region = Rect2(512, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_v0dw7"]
 atlas = ExtResource("2_87dvy")
 region = Rect2(512, 0, 32, 32)
@@ -115,18 +100,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mb6hx")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hknvq")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_32hl3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_507tf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gvvlt")
 }],
 "loop": true,
 "name": &"fire",
@@ -142,18 +115,30 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h5jd2"]
-size = Vector2(31, 33.0625)
+size = Vector2(31, 66.5312)
 
 [node name="Laser Turret" type="RigidBody2D" groups=["traps"]]
 collision_layer = 8
 collision_mask = 17
+mass = 100.0
+gravity_scale = 10.0
+freeze = true
+script = ExtResource("1_b2nk7")
 
 [node name="Animation" type="AnimatedSprite2D" parent="."]
-position = Vector2(-2.07478e-12, -7.93751)
+position = Vector2(0, -5)
 scale = Vector2(1.5, 1.44141)
 sprite_frames = SubResource("SpriteFrames_im1a3")
-animation = &"idle"
+animation = &"fire"
+frame = 7
+frame_progress = 0.860238
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2(2, -2)
+position = Vector2(1, -16.2656)
 shape = SubResource("RectangleShape2D_h5jd2")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

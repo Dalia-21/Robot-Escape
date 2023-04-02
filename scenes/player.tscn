@@ -383,5 +383,8 @@ limit_right = 1000000
 limit_bottom = 360
 editor_draw_limits = true
 
-[node name="TakingDamage" type="AudioStreamPlayer" parent="."]
+[node name="TakingDamageSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_kw3pb")
+
+[node name="InvincibilityTimer" type="Timer" parent="."]
+one_shot = true
