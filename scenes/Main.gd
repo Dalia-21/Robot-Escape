@@ -3,7 +3,7 @@ extends Node
 var scene_path = "res://scenes/level0%d.tscn"
 var next_scene_no = 1
 var next_scene = scene_path % next_scene_no
-var transition_item
+var transition_item  # Item used to transition between levels
 var level_name = "Level 0%d"
 var next_scene_ready = false
 var last_scene_instance = null
@@ -37,7 +37,7 @@ func load_main_menu():
 	
 func _process(_delta):
 	if next_scene_ready:
-		if not get_tree().current_scene.get_node("HUD"):
+		if not get_tree().current_scene.has_node("HUD"):
 			load_HUD()
 		load_next_scene()
 		next_scene_ready = false
@@ -91,9 +91,10 @@ func play_credits():
 		main_menu_button.button_up.connect(Callable(self, "_back_to_menu"))
 	
 func _back_to_menu():
-	var HUD_node = get_tree().current_scene.get_node("HUD")
-	if HUD_node:
-		remove_child(HUD_node)
+	if get_tree().current_scene.has_node("HUD"):
+		var HUD_node = get_tree().current_scene.get_node("HUD")
+		if HUD_node:
+			remove_child(HUD_node)
 	next_scene_no = 1  # Reset level count
 	load_main_menu()
 	
