@@ -1,6 +1,0 @@
-Upper and lower camera limits for player scene set to 400 and 760.
-400 is the current upper limit of the screen, and 760 is 360 more than this.
-360 is equal to 1080/3, as the camera is zoomed in 3x.
-
-Can I add the player as a child of each level with a starting position
-at the start of each level?

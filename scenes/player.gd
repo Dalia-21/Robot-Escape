@@ -21,7 +21,7 @@ func _physics_process(delta):
 	var direction = Input.get_axis("move_left", "move_right")
 	
 	# Handle Jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		$AnimatedSprite2D.play("jump")
 	
