@@ -1,0 +1,119 @@
+[gd_scene load_steps=8 format=3 uid="uid://8in6twhnlvdu"]
+
+[ext_resource type="Texture2D" uid="uid://dmucju330gwmc" path="res://assets/images/backgrounds/IntroBG.png" id="1_iepsw"]
+[ext_resource type="Script" path="res://scenes/IntroScrollContainer.gd" id="2_6gbns"]
+[ext_resource type="FontFile" uid="uid://8rllcomrvwxd" path="res://assets/fonts/robot-9000-font/Robot9000-MVxZx.ttf" id="3_0lww1"]
+[ext_resource type="AudioStream" uid="uid://jr6shfira6mv" path="res://assets/sounds/music/Intro - Azakaela - At My Fingertips.wav" id="4_gilke"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7f0ir"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 0.588235)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ndfe1"]
+bg_color = Color(0.6, 0.6, 0.6, 0.392157)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gtqbd"]
+bg_color = Color(0.117647, 0.117647, 0.117647, 0.784314)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="Intro" type="Node2D"]
+
+[node name="BackgroundImage" type="TextureRect" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_iepsw")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ContentsContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ContentsContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_right = 400
+
+[node name="IntroScrollContainer" type="ScrollContainer" parent="MarginContainer/ContentsContainer/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+script = ExtResource("2_6gbns")
+
+[node name="CreditsText" type="RichTextLabel" parent="MarginContainer/ContentsContainer/MarginContainer/IntroScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_fonts/normal_font = ExtResource("3_0lww1")
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
+text = "[center]
+
+
+
+
+
+
+
+
+
+
+
+
+
+This is a story about a robot escaping from the humans. Robots have often been used in science fiction as a way to explore how humans treat other humans.
+
+The name robot literally means worker in Slavic languages, and reflects the way that advanced modern civilisations depend on the labour of an underclass to maintain their status.
+
+If robots were to become sentient, as so many fantasies of the future dream of, would we treat them with respect?
+
+
+
+
+
+
+
+
+[/center]"
+fit_content = true
+scroll_active = false
+threaded = true
+
+[node name="ScrollTimer" type="Timer" parent="MarginContainer/ContentsContainer/MarginContainer/IntroScrollContainer"]
+wait_time = 0.1
+
+[node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer/ContentsContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/ContentsContainer/ButtonContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 500
+theme_override_constants/margin_right = 500
+
+[node name="SkipButton" type="Button" parent="MarginContainer/ContentsContainer/ButtonContainer/MarginContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_0lww1")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_7f0ir")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ndfe1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_gtqbd")
+text = "Skip to First Level"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_gilke")
+autoplay = true
+
+[connection signal="timeout" from="MarginContainer/ContentsContainer/MarginContainer/IntroScrollContainer/ScrollTimer" to="MarginContainer/ContentsContainer/MarginContainer/IntroScrollContainer" method="_on_scroll_timer_timeout"]

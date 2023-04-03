@@ -37,15 +37,36 @@ func load_main_menu():
 	
 func _process(_delta):
 	if next_scene_ready:
+		if not get_tree().current_scene.get_node("HUD"):
+			load_HUD()
 		load_next_scene()
 		next_scene_ready = false
 		
 func _on_start_button_up():
+	play_intro()
+	
+func play_intro():
+	var intro_scene = load("res://scenes/intro.tscn")
+	var intro_instance = intro_scene.instantiate()
+	add_child(intro_instance)
+	if last_scene_instance != null:
+		remove_child(last_scene_instance)
+	last_scene_instance = intro_instance
+	
+	var skip_button = get_tree().current_scene.get_node(
+		"Intro/MarginContainer/ContentsContainer/ButtonContainer/MarginContainer/SkipButton")
+		
+	if not skip_button.button_up.is_connected(Callable(self, "_on_end_intro")):
+		skip_button.button_up.connect(Callable(self, "_on_end_intro"))
+
+func _on_end_intro():
+	next_scene_ready = true
+	
+func load_HUD():
 	# Load HUD
 	var HUD_scene = load("res://scenes/HUD.tscn")
 	var HUD_instance = HUD_scene.instantiate()
 	add_child(HUD_instance)
-	next_scene_ready = true
 	
 	var quit_button = get_tree().current_scene.get_node(
 		"HUD/HUDLayer/MenuContainer/ButtonContainer/QuitButton")
@@ -73,6 +94,7 @@ func _back_to_menu():
 	var HUD_node = get_tree().current_scene.get_node("HUD")
 	if HUD_node:
 		remove_child(HUD_node)
+	next_scene_no = 1  # Reset level count
 	load_main_menu()
 	
 func _on_exit_button_up():
