@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ro4kdqi8q36"
+path="res://.godot/imported/Level02 - sepha - Atmospheric Jungle Tool.mp3-09554c1bdd27c96c9a34e5a8d118b730.mp3str"
+
+[deps]
+
+source_file="res://assets/sounds/music/Level02 - sepha - Atmospheric Jungle Tool.mp3"
+dest_files=["res://.godot/imported/Level02 - sepha - Atmospheric Jungle Tool.mp3-09554c1bdd27c96c9a34e5a8d118b730.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
